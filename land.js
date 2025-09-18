@@ -1,6 +1,41 @@
+// Добавляем в функцию animateSocialLinks
+function animateSocialLinks() {
+    const socialLinks = document.querySelectorAll('.social-icon-link');
+    
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Добавляем наблюдение за появлением подвала
+function initFooterObserver() {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    observer.observe(footer);
+}
+
+// В функции DOMContentLoaded оставляем только вызов
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация Three.js сцены
     initThreeJs();
+    
+    // Анимация социальных ссылок
+    animateSocialLinks();
     
     // Улучшение голографического фона
     enhanceHolographicBg();
@@ -51,25 +86,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Инициализация Three.js
+// Остальные функции остаются без изменений
 function initThreeJs() {
     const container = document.getElementById('threeJsContainer');
     if (!container) return;
     
-    // Basic Three.js setup would go here
-    // For a complete implementation, you would create a scene, camera, renderer
-    // and add 3D objects with holographic materials
-    
-    // Placeholder for Three.js scene
     container.innerHTML = '<div style="width:100%; height:100%; display:flex; justify-content:center; align-items:center;"><div style="width:200px; height:200px; background: linear-gradient(45deg, #6e44ff, #0cceeb); border-radius:50%; opacity:0.5; filter: blur(20px);"></div></div>';
 }
 
-// Улучшение голографического фона
 function enhanceHolographicBg() {
     const bg = document.getElementById('holographicBg');
     if (!bg) return;
     
-    // Добавление дополнительных эффектов к фону
     const colors = ['#6e44ff', '#0cceeb', '#ef6eae', '#36d6b5'];
     let currentIndex = 0;
     
@@ -79,7 +107,6 @@ function enhanceHolographicBg() {
     }, 5000);
 }
 
-// Анимация карточек услуг
 function animateServiceCards() {
     const serviceCards = document.querySelectorAll('.service-card');
     
