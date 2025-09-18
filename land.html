@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PZF Studio - Студия программирования</title>
+    <link rel="stylesheet" href="land.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="holographic-bg" id="holographicBg"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">PZF</span>
+                <span class="logo-subtitle">studio</span>
+            </div>
+            <nav class="nav">
+                <a href="#services">Услуги</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <button class="cta-button" id="headerCta">Обсудить проект</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    <span class="title-line">Цифровые решения</span>
+                    <span class="title-line">для вашего бизнеса</span>
+                </h1>
+                <p class="hero-description">Создаем современные веб-сайты, мобильные приложения и телеграм-боты с интеграцией CRM для малого и растущего бизнеса</p>
+                <button class="cta-button large" id="heroCta">Обсудить проект</button>
+                <div class="hero-visual" id="threeJsContainer"></div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Наши услуги</h2>
+                <div class="services-grid">
+                    <div class="service-card" data-service="web">
+                        <div class="service-icon">🖥️</div>
+                        <h3>Веб-сайты</h3>
+                        <p>Современные и адаптивные сайты, которые привлекают клиентов</p>
+                        <div class="holographic-line"></div>
+                    </div>
+                    <div class="service-card" data-service="mobile">
+                        <div class="service-icon">📱</div>
+                        <h3>Мобильные приложения</h3>
+                        <p>Кроссплатформенные приложения для iOS и Android</p>
+                        <div class="holographic-line"></div>
+                    </div>
+                    <div class="service-card" data-service="bot">
+                        <div class="service-icon">🤖</div>
+                        <h3>Telegram боты</h3>
+                        <p>Автоматизация бизнес-процессов с интеграцией в CRM</p>
+                        <div class="holographic-line"></div>
+                    </div>
+                    <div class="service-card" data-service="crm">
+                        <div class="service-icon">🔧</div>
+                        <h3>Настройка CRM</h3>
+                        <p>Внедрение и настройка CRM-систем под ваши задачи</p>
+                        <div class="holographic-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">Почему мы?</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>PZF Studio — это команда профессионалов, которые помогут вашему бизнесу перейти на цифровой уровень. Мы специализируемся на комплексных решениях для малого и растущего бизнеса.</p>
+                        <p>Наш подход сочетает в себе креативность, техническое excellence и глубокое понимание бизнес-процессов.</p>
+                        <ul class="features-list">
+                            <li>Индивидуальный подход к каждому проекту</li>
+                            <li>Современные технологии и методологии</li>
+                            <li>Глубокая интеграция с CRM-системами</li>
+                            <li>Поддержка после запуска проекта</li>
+                        </ul>
+                    </div>
+                    <div class="about-visual">
+                        <div class="holographic-cube" id="holographicCube">
+                            <div class="face front">PZF</div>
+                            <div class="face back">WEB</div>
+                            <div class="face right">APP</div>
+                            <div class="face left">BOT</div>
+                            <div class="face top">CRM</div>
+                            <div class="face bottom">DEV</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <div class="contacts-content">
+                    <div class="contact-info">
+                        <p>Готовы обсудить ваш проект? Оставьте заявку, и мы свяжемся с вами в течение дня.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <span>info@pzf-studio.ru</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <span>+7 (XXX) XXX-XX-XX</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">Telegram</span>
+                                <span>@pzf_studio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Телефон">
+                        <textarea placeholder="Опишите ваш проект" rows="4"></textarea>
+                        <button type="submit" class="cta-button">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <span class="logo-text">PZF</span>
+                    <span class="logo-subtitle">studio</span>
+                </div>
+                <p>© 2023 PZF Studio. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="land.js"></script>
+</body>
+</html>
