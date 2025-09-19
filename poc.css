@@ -1,0 +1,342 @@
+/* process.css */
+/* Стили для страницы процесса работы */
+
+/* Герой секция для страницы процесса */
+.process-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+}
+
+.process-hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #6e45e2, #88d3ce);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.process-hero-description {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ccc;
+}
+
+/* Детальный процесс */
+.detailed-process {
+    padding: 6rem 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #6e45e2, #88d3ce);
+    transform: translateX(-50%);
+}
+
+.process-phase {
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.phase-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6e45e2, #88d3ce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.phase-content {
+    margin-left: 8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.phase-details h4 {
+    margin: 1.5rem 0 1rem;
+    color: #88d3ce;
+}
+
+.phase-details ul {
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.phase-details li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.advantage-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.advantage-item i {
+    font-size: 2.5rem;
+    color: #6e45e2;
+    margin-bottom: 1rem;
+}
+
+.advantage-item h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.tech-stack {
+    margin: 2rem 0;
+}
+
+.tech-category {
+    margin-bottom: 1.5rem;
+}
+
+.tech-category h5 {
+    margin-bottom: 0.8rem;
+    color: #88d3ce;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: rgba(110, 69, 226, 0.2);
+    color: #88d3ce;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.support-option {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.support-option h5 {
+    color: #6e45e2;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.support-option ul {
+    margin-left: 1rem;
+}
+
+.phase-output {
+    background: rgba(136, 211, 206, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 4px solid #88d3ce;
+}
+
+.phase-output h4 {
+    color: #88d3ce;
+    margin-top: 0;
+}
+
+/* Сравнительная таблица */
+.comparison-section {
+    padding: 6rem 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+.comparison-table {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: rgba(110, 69, 226, 0.2);
+    padding: 1.5rem;
+    font-weight: 700;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.comparison-criteria {
+    font-weight: 500;
+}
+
+.comparison-option {
+    padding: 0 1rem;
+}
+
+.highlight {
+    color: #88d3ce;
+    font-weight: 500;
+}
+
+/* Секция CTA */
+.process-cta {
+    padding: 6rem 0;
+    text-align: center;
+    background: linear-gradient(45deg, rgba(110, 69, 226, 0.1), rgba(136, 211, 206, 0.1));
+}
+
+.process-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.process-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ccc;
+}
+
+/* Анимации */
+@keyframes phaseAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.process-phase {
+    animation: phaseAppear 0.8s forwards;
+}
+
+.process-phase:nth-child(2) { animation-delay: 0.2s; }
+.process-phase:nth-child(3) { animation-delay: 0.4s; }
+.process-phase:nth-child(4) { animation-delay: 0.6s; }
+.process-phase:nth-child(5) { animation-delay: 0.8s; }
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .process-timeline::before {
+        left: 30px;
+    }
+    
+    .phase-content {
+        margin-left: 5rem;
+    }
+    
+    .comparison-header,
+    .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .comparison-criteria {
+        font-weight: 700;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .process-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .phase-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .phase-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .phase-content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+    
+    .process-timeline::before {
+        display: none;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .support-options {
+        grid-template-columns: 1fr;
+    }
+}

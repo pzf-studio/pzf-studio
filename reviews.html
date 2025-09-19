@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы клиентов - PZF-Studio</title>
+    <link rel="stylesheet" href="reviews.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="holographic-bg"></div>
+    
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">PZF-Studio</div>
+            <div class="nav-menu">
+                <a href="land.html" class="nav-link">Главная</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="process.html" class="nav-link">Процесс</a>
+                <a href="reviews.html" class="nav-link active">Отзывы</a>
+                <a href="contact.html" class="nav-link">Контакты</a>
+            </div>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Отзывы наших клиентов</h1>
+            <p>Реальные истории успеха и результаты проектов, которые мы реализовали</p>
+        </div>
+    </section>
+
+    <!-- Детальные отзывы -->
+    <section class="detailed-reviews">
+        <div class="container">
+            <div class="reviews-filter">
+                <button class="filter-btn active" data-filter="all">Все проекты</button>
+                <button class="filter-btn" data-filter="website">Веб-сайты</button>
+                <button class="filter-btn" data-filter="mobile">Мобильные приложения</button>
+                <button class="filter-btn" data-filter="telegram">Telegram боты</button>
+                <button class="filter-btn" data-filter="crm">CRM системы</button>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Отзыв 1 -->
+                <div class="review-detail" data-category="website">
+                    <div class="review-header">
+                        <div class="client-info">
+                            <div class="client-avatar">
+                                <img src="https://via.placeholder.com/80/0a0a1a/88d3ce?text=MI" alt="Марина Иванова">
+                            </div>
+                            <div class="client-details">
+                                <h3>Марина Иванова</h3>
+                                <p>Директор, "StyleShop"</p>
+                                <div class="project-type">Интернет-магазин</div>
+                            </div>
+                        </div>
+                        <div class="review-stats">
+                            <div class="stat">
+                                <span class="stat-number">+65%</span>
+                                <span class="stat-label">Конверсия</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Месяца</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-content">
+                        <div class="review-text">
+                            <p>"PZF-Studio разработали для нас интернет-магазин с нуля. Мы долго искали подрядчика, который сможет понять специфику нашего бизнеса в сфере модной одежды. Ребята не только создали технически совершенный продукт, но и глубоко погрузились в наши бизнес-процессы."</p>
+                            
+                            <h4>Что было сделано:</h4>
+                            <ul>
+                                <li>Разработан современный адаптивный дизайн</li>
+                                <li>Реализована сложная система фильтров товаров</li>
+                                <li>Интегрирована система онлайн-оплаты</li>
+                                <li>Настроена CRM для управления заказами</li>
+                                <li>Реализована система рекомендаций товаров</li>
+                            </ul>
+
+                            <h4>Результаты:</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Рост конверсии на 65%</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Увеличение среднего чека на 30%</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>40% заказов с мобильных</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-images">
+                            <div class="image-slider">
+                                <img src="https://via.placeholder.com/400x250/1a1a2a/88d3ce?text=Скриншот+1" alt="Скриншот проекта">
+                                <img src="https://via.placeholder.com/400x250/1a1a2a/88d3ce?text=Скриншот+2" alt="Скриншот проекта">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-footer">
+                        <div class="project-duration">
+                            <span>Срок реализации: 2 месяца</span>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="review-detail" data-category="telegram">
+                    <div class="review-header">
+                        <div class="client-info">
+                            <div class="client-avatar">
+                                <img src="https://via.placeholder.com/80/0a0a1a/88d3ce?text=AP" alt="Алексей Петров">
+                            </div>
+                            <div class="client-details">
+                                <h3>Алексей Петров</h3>
+                                <p>Владелец, "FoodExpress"</p>
+                                <div class="project-type">Telegram бот</div>
+                            </div>
+                        </div>
+                        <div class="review-stats">
+                            <div class="stat">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Менеджера</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Работа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-content">
+                        <div class="review-text">
+                            <p>"Заказали разработку Telegram-бота для автоматизации обработки заказов в нашем сервисе доставки еды. Бот работает абсолютно без сбоев, клиенты довольны скоростью ответов и удобством заказа."</p>
+                            
+                            <h4>Что было сделано:</h4>
+                            <ul>
+                                <li>Создан умный бот с NLP обработкой сообщений</li>
+                                <li>Интегрирована система онлайн-оплаты</li>
+                                <li>Реализована система уведомлений курьеров</li>
+                                <li>Настроена интеграция с нашей CRM</li>
+                                <li>Добавлена мультиязычная поддержка</li>
+                            </ul>
+
+                            <h4>Результаты:</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <i class="fas fa-robot"></i>
+                                    <span>Автоматизация 80% заказов</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Экономия 2 зарплат менеджеров</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Сокращение времени обработки на 70%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-footer">
+                        <div class="project-duration">
+                            <span>Срок реализации: 3 недели</span>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Aiogram</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="review-detail" data-category="crm">
+                    <div class="review-header">
+                        <div class="client-info">
+                            <div class="client-avatar">
+                                <img src="https://via.placeholder.com/80/0a0a1a/88d3ce?text=DS" alt="Дмитрий Смирнов">
+                            </div>
+                            <div class="client-details">
+                                <h3>Дмитрий Смирнов</h3>
+                                <p>CEO, "TechSolutions"</p>
+                                <div class="project-type">CRM система</div>
+                            </div>
+                        </div>
+                        <div class="review-stats">
+                            <div class="stat">
+                                <span class="stat-number">50%</span>
+                                <span class="stat-label">Эффективность</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Пользователей</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-content">
+                        <div class="review-text">
+                            <p>"CRM система, разработанная PZF-Studio, идеально легла в наши бизнес-процессы. Мы автоматизировали отчетность, работу с клиентами и управление проектами. Система масштабируется вместе с нашим ростом."</p>
+                            
+                            <h4>Что было сделано:</h4>
+                            <ul>
+                                <li>Разработана индивидуальная CRM система</li>
+                                <li>Интегрирована с телефонией и почтой</li>
+                                <li>Реализована система аналитики и отчетности</li>
+                                <li>Созданы мобильные приложения для менеджеров</li>
+                                <li>Проведено обучение 100+ сотрудников</li>
+                            </ul>
+
+                            <h4>Результаты:</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Увеличение продаж на 40%</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Сокращение времени на отчеты на 60%</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-sync"></i>
+                                    <span>Автоматизация 30 бизнес-процессов</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-footer">
+                        <div class="project-duration">
+                            <span>Срок реализации: 4 месяца</span>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="reviews-stats">
+        <div class="container">
+            <h2>В цифрах</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Реализованных проектов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Довольных клиентов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Года опыта</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">Поддержка 24/7</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секция -->
+    <section class="reviews-cta">
+        <div class="container">
+            <h2>Готовы начать свой проект?</h2>
+            <p>Присоединяйтесь к нашим довольным клиентам и получите современное digital-решение для вашего бизнеса</p>
+            <a href="contact.html" class="cta-button">Обсудить проект</a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PZF-Studio</h3>
+                <p>Создаём цифровые продукты для вашего бизнеса. Инновационные решения с 2020 года.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Услуги</h4>
+                <ul>
+                    <li><a href="services.html">Веб-разработка</a></li>
+                    <li><a href="services.html">Мобильные приложения</a></li>
+                    <li><a href="services.html">Telegram боты</a></li>
+                    <li><a href="services.html">CRM системы</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="land.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="process.html">Процесс</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>Email: info@pzf-studio.ru</p>
+                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PZF-Studio. Все права защищены</p>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="reviews.js"></script>
+</body>
+</html>

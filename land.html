@@ -3,207 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PZF Studio - Студия программирования</title>
+    <title>PZF-Studio - Студия программирования</title>
     <link rel="stylesheet" href="land.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="holographic-bg" id="holographicBg"></div>
+    <!-- Анимированный фон -->
+    <div class="holographic-bg"></div>
     
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-text">PZF</span>
-                <span class="logo-subtitle">studio</span>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">PZF-Studio</div>
+            <div class="nav-menu">
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="poc.html" class="nav-link active">Процесс</a>
+                <a href="about.html" class="nav-link active">О нас</a>
+                <a href="reviews.html" class="nav-link active">Отзывы</a>
+                <a href="#contact" class="nav-link">Контакты</a>
             </div>
-            <nav class="nav">
-                <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
-            <button class="cta-button" id="headerCta">Обсудить проект</button>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title">
-                    <span class="title-line">Цифровые решения</span>
-                    <span class="title-line">для вашего бизнеса</span>
-                </h1>
-                <p class="hero-description">Создаем современные веб-сайты, мобильные приложения и телеграм-боты с интеграцией CRM для малого и растущего бизнеса</p>
-                <button class="cta-button large" id="heroCta">Обсудить проект</button>
-                <div class="hero-visual" id="threeJsContainer"></div>
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-word">Создаём</span>
+                <span class="title-word">цифровые</span>
+                <span class="title-word">решения</span>
+                <span class="title-word">для бизнеса</span>
+            </h1>
+            <p class="hero-description">Веб-сайты, мобильные приложения, Telegram-боты и CRM-системы для малого и растущего бизнеса. Превращаем ваши идеи в современные цифровые продукты.</p>
+            <button class="cta-button" id="cta-hero">Обсудить проект</button>
+        </div>
+        <div class="hero-visual">
+            <div class="holographic-cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services" id="services">
-            <div class="container">
-                <h2 class="section-title">Наши услуги</h2>
-                <div class="services-grid">
-                    <div class="service-card" data-service="web">
-                        <div class="service-icon">🖥️</div>
-                        <h3>Веб-сайты</h3>
-                        <p>Современные и адаптивные сайты, которые привлекают клиентов</p>
-                        <div class="holographic-line"></div>
-                    </div>
-                    <div class="service-card" data-service="mobile">
-                        <div class="service-icon">📱</div>
-                        <h3>Мобильные приложения</h3>
-                        <p>Кроссплатформенные приложения для iOS и Android</p>
-                        <div class="holographic-line"></div>
-                    </div>
-                    <div class="service-card" data-service="bot">
-                        <div class="service-icon">🤖</div>
-                        <h3>Telegram боты</h3>
-                        <p>Автоматизация бизнес-процессов с интеграцией в CRM</p>
-                        <div class="holographic-line"></div>
-                    </div>
-                    <div class="service-card" data-service="crm">
-                        <div class="service-icon">🔧</div>
-                        <h3>Настройка CRM</h3>
-                        <p>Внедрение и настройка CRM-систем под ваши задачи</p>
-                        <div class="holographic-line"></div>
-                    </div>
+    <!-- Секция услуг -->
+    <section class="services" id="services">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Веб-сайты</h3>
+                <p>Современные и функциональные сайты для вашего бизнеса. От лендингов до сложных интернет-магазинов.</p>
+                <ul class="service-features">
+                    <li>Адаптивный дизайн</li>
+                    <li>SEO-оптимизация</li>
+                    <li>Интеграция с CRM</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Мобильные приложения</h3>
+                <p>Кроссплатформенные приложения для iOS и Android. Разрабатываем на React Native и Flutter.</p>
+                <ul class="service-features">
+                    <li>Кроссплатформенность</li>
+                    <li>Высокая производительность</li>
+                    <li>Нативные элементы UI</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fab fa-telegram-plane"></i></div>
+                <h3>Telegram боты</h3>
+                <p>Умные боты с интеграцией CRM систем для автоматизации бизнес-процессов и коммуникации с клиентами.</p>
+                <ul class="service-features">
+                    <li>Автоматизация продаж</li>
+                    <li>Интеграция с платежами</li>
+                    <li>Мультиязычность</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                <h3>CRM системы</h3>
+                <p>Настройка и запуск CRM с нуля под ваш бизнес. Интеграция с сайтами, телефонией и мессенджерами.</p>
+                <ul class="service-features">
+                    <li>Индивидуальная разработка</li>
+                    <li>Обучение сотрудников</li>
+                    <li>Техническая поддержка</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция процесса работы -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Как мы работаем</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Обсуждение</h3>
+                    <p>Анализируем ваши потребности и цели проекта</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Проектирование</h3>
+                    <p>Создаем прототипы и дизайн будущего продукта</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fas fa-code"></i></div>
+                    <h3>Разработка</h3>
+                    <p>Пишем код, тестируем и исправляем ошибки</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Запуск</h3>
+                    <p>Размещаем продукт и обучаем вашу команду</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="about" id="about">
-            <div class="container">
-                <h2 class="section-title">Почему мы?</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>PZF Studio — это команда профессионалов, которые помогут вашему бизнесу перейти на цифровой уровень. Мы специализируемся на комплексных решениях для малого и растущего бизнеса.</p>
-                        <p>Наш подход сочетает в себе креативность, техническое excellence и глубокое понимание бизнес-процессов.</p>
-                        <ul class="features-list">
-                            <li>Индивидуальный подход к каждому проекту</li>
-                            <li>Современные технологии и методологии</li>
-                            <li>Глубокая интеграция с CRM-системами</li>
-                            <li>Поддержка после запуска проекта</li>
-                        </ul>
+    <!-- Секция преимуществ -->
+    <section class="advantages">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="advantages-container">
+            <div class="advantage">
+                <div class="advantage-number">01</div>
+                <h3>Полный цикл разработки</h3>
+                <p>От идеи до реализации и поддержки. Мы сопровождаем проекты на всех этапах.</p>
+            </div>
+            <div class="advantage">
+                <div class="advantage-number">02</div>
+                <h3>Индивидуальный подход</h3>
+                <p>Решения, tailored под ваш бизнес. Мы не используем шаблонные подходы.</p>
+            </div>
+            <div class="advantage">
+                <div class="advantage-number">03</div>
+                <h3>Современные технологии</h3>
+                <p>Используем актуальные инструменты разработки для надежных решений.</p>
+            </div>
+            <div class="advantage">
+                <div class="advantage-number">04</div>
+                <h3>Прозрачность процесса</h3>
+                <p>Регулярные отчеты о ходе работы и гибкая система коммуникации.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отзывов -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="reviews-slider">
+                <div class="review-item">
+                    <div class="review-content">
+                        <div class="review-text">
+                            <p>"PZF-Studio разработали для нас интернет-магазин с нуля. Результат превзошел ожидания - трафик и конверсия выросли на 65% за первые три месяца."</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <img src="https://via.placeholder.com/60/0a0a1a/88d3ce?text=AV" alt="Аватар">
+                            </div>
+                            <div class="author-info">
+                                <h4>Марина Иванова</h4>
+                                <p>Директор, "StyleShop"</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="about-visual">
-                        <div class="holographic-cube" id="holographicCube">
-                            <div class="face front">PZF</div>
-                            <div class="face back">WEB</div>
-                            <div class="face right">APP</div>
-                            <div class="face left">BOT</div>
-                            <div class="face top">CRM</div>
-                            <div class="face bottom">DEV</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-content">
+                        <div class="review-text">
+                            <p>"Заказали разработку Telegram-бота для обработки заказов. Бот работает без сбоев, клиенты довольны скоростью ответов. Сэкономили на двух менеджерах!"</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <img src="https://via.placeholder.com/60/0a0a1a/88d3ce?text=AV" alt="Аватар">
+                            </div>
+                            <div class="author-info">
+                                <h4>Алексей Петров</h4>
+                                <p>Владелец, "FoodExpress"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-content">
+                        <div class="review-text">
+                            <p>"CRM система, разработанная PZF-Studio, идеально легла в наши бизнес-процессы. Автоматизировали отчетность и работу с клиентами. Рекомендую!"</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <img src="https://via.placeholder.com/60/0a0a1a/88d3ce?text=AV" alt="Аватар">
+                            </div>
+                            <div class="author-info">
+                                <h4>Дмитрий Смирнов</h4>
+                                <p>CEO, "TechSolutions"</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="reviews-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
 
-        <section class="contacts" id="contacts">
-            <div class="container">
-                <h2 class="section-title">Свяжитесь с нами</h2>
-                <div class="contacts-content">
-                    <div class="contact-info">
-                        <p>Готовы обсудить ваш проект? Оставьте заявку, и мы свяжемся с вами в течение дня.</p>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="contact-icon">📧</span>
-                                <span>info@pzf-studio.ru</span>
+    <!-- Секция контактов -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Давайте обсудим ваш проект</h3>
+                    <p>Заполните форму или свяжитесь с нами напрямую</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📱</span>
-                                <span>+7 (XXX) XXX-XX-XX</span>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@pzf-studio.ru</p>
                             </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">Telegram</span>
-                                <span>@pzf_studio</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Телефон</h4>
+                                <p>+7 (XXX) XXX-XX-XX</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Адрес</h4>
+                                <p>г. Москва, ул. Примерная, д. 123</p>
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form" id="contactForm">
-                        <input type="text" placeholder="Ваше имя" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Телефон">
-                        <textarea placeholder="Опишите ваш проект" rows="4"></textarea>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="project-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Опишите ваш проект" rows="5" required></textarea>
+                        </div>
                         <button type="submit" class="cta-button">Отправить</button>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Футер -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-text">PZF</span>
-                        <span class="logo-subtitle">studio</span>
-                    </div>
-                    <p class="footer-tagline">Создаем цифровые решения для вашего бизнеса</p>
-                </div>
-                
-                <div class="footer-socials">
-                    <h3 class="socials-title">Мы в соцсетях</h3>
-                    <div class="social-icons">
-                        <a href="https://t.me/pzf_studio" target="_blank" class="social-icon-link" title="Telegram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                            </svg>
-                        </a>
-                        <a href="https://vk.com/pzf_studio" target="_blank" class="social-icon-link" title="VK">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.889 16.917c-.678.642-1.916 1.083-1.916 1.083s-2.002.896-4.607.344c-2.605-.552-4.266-3.111-4.266-3.111v-.002s-2.228-4.306.479-4.917c2.707-.611 2.373 2.103 2.373 2.103s.188-1.333 1.479-1.333c1.292 0 1.292 1.292 1.292 1.292s.042-2.125 2.125-2.125c2.083 0 1.958 2.083 1.958 2.083s.375-2.458 2.458-2.458c2.083 0 1.917 2.458 1.917 2.458s.542 3.542-1.375 5.083z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/pzf_studio" target="_blank" class="social-icon-link" title="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://avito.ru/pzf_studio" target="_blank" class="social-icon-link" title="Avito">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.514 0-10-4.486-10-10S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-16h2v12h-2V6zm0 4h2v2h-2v-2z"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/pzf-studio" target="_blank" class="social-icon-link" title="GitHub">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                            </svg>
-                        </a>
-                        <a href="https://youtube.com/@pzf_studio" target="_blank" class="social-icon-link" title="YouTube">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 16.892c-1.102.486-2.284.736-3.441.736s-2.339-.25-3.441-.736c-.5-.219-.902-.621-1.121-1.121-.486-1.102-.736-2.284-.736-3.441s.25-2.339.736-3.441c.219-.5.621-.902 1.121-1.121 1.102-.486 2.284-.736 3.441-.736s2.339.25 3.441.736c.5.219.902.621 1.121 1.121.486 1.102.736 2.284.736 3.441s-.25 2.339-.736 3.441c-.219.5-.621.902-1.121 1.121zM10 9v6l5-3-5-3z"/>
-                            </svg>
-                        </a>
-                        <a href="https://tiktok.com/@pzf_studio" target="_blank" class="social-icon-link" title="TikTok">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 7.5c.5 1.5 1.5 2.5 3 3v2.5c-1.5.5-3 0-4-.5s-2-1.5-2.5-3c-.5-1.5-.5-3 0-4.5.5-1.5 1.5-2.5 3-3V5c1.5.5 3 1.5 3.5 3s.5 3 0 4.5z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-contacts">
-                    <h3 class="contacts-title">Контакты</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span class="contact-email">info@pzf-studio.ru</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-phone">+7 (XXX) 2006-06-06</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PZF-Studio</h3>
+                <p>Создаём цифровые продукты для вашего бизнеса. Инновационные решения с 2020 года.</p>
             </div>
-            
-            <div class="footer-divider"></div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">© 2023 PZF Studio. Все права защищены.</p>
+            <div class="footer-section">
+                <h4>Услуги</h4>
+                <ul>
+                    <li><a href="#">Веб-разработка</a></li>
+                    <li><a href="#">Мобильные приложения</a></li>
+                    <li><a href="#">Telegram боты</a></li>
+                    <li><a href="#">CRM системы</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#process">Процесс</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>Email: info@pzf-studio.ru</p>
+                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PZF-Studio. Все права защищены</p>
+        </div>
     </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <script src="land.js"></script>
 </body>
