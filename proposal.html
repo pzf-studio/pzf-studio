@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коммерческое предложение | PZF-Studio</title>
+    <link rel="stylesheet" href="proposal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Библиотека для генерации PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="holographic-bg"></div>
+    
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="land.html" class="nav-logo">PZF-Studio</a>
+            <div class="nav-menu">
+                <a href="poc.html" class="nav-link">Процесс</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="reviews.html" class="nav-link">Отзывы</a>
+                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+                <a href="shop.html#cart" class="nav-link cart-link">
+                    Корзина <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="proposal-container">
+        <div class="container">
+            <h1 class="section-title">Коммерческое предложение</h1>
+            
+            <!-- Шаги формирования -->
+            <div class="proposal-steps">
+                <div class="step active">1. Выбор услуг</div>
+                <div class="step">2. Детали проекта</div>
+                <div class="step">3. Просмотр КП</div>
+            </div>
+
+            <!-- Шаг 1: Выбор услуг (на основе корзины) -->
+            <section class="proposal-step" id="step-1">
+                <h2>Выбранные услуги</h2>
+                <div class="selected-services" id="selected-services">
+                    <!-- Сюда будут добавлены услуги из корзины -->
+                </div>
+                
+                <div class="step-actions">
+                    <button class="btn-next" onclick="nextStep(2)">Перейти к деталям →</button>
+                </div>
+            </section>
+
+            <!-- Шаг 2: Детали проекта -->
+            <section class="proposal-step hidden" id="step-2">
+                <h2>Детали вашего проекта</h2>
+                
+                <form id="project-details-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="company-name">Название компании/проекта *</label>
+                            <input type="text" id="company-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-description">Описание проекта *</label>
+                            <textarea id="project-description" rows="4" required placeholder="Опишите цели и задачи вашего проекта..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-deadline">Желаемый срок выполнения</label>
+                            <input type="date" id="project-deadline">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additional-requirements">Дополнительные требования</label>
+                            <textarea id="additional-requirements" rows="3" placeholder="Особые пожелания, предпочтения по технологиям и т.д."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Дополнительные опции</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="options" value="design">
+                                <span class="checkmark"></span>
+                                Индивидуальный дизайн (+15% к стоимости)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="options" value="support">
+                                <span class="checkmark"></span>
+                                Годовая техническая поддержка (+20% к стоимости)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="options" value="hosting">
+                                <span class="checkmark"></span>
+                                Настройка хостинга и домена (+5 000 руб.)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="options" value="seo">
+                                <span class="checkmark"></span>
+                                Базовая SEO-оптимизация (+10 000 руб.)
+                            </label>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="step-actions">
+                    <button class="btn-prev" onclick="prevStep(1)">← Назад</button>
+                    <button class="btn-next" onclick="generateProposal()">Сформировать КП →</button>
+                </div>
+            </section>
+
+            <!-- Шаг 3: Просмотр КП -->
+            <section class="proposal-step hidden" id="step-3">
+                <h2>Ваше коммерческое предложение</h2>
+                
+                <div class="proposal-actions">
+                    <button class="btn-download" onclick="downloadPDF()">
+                        <i class="fas fa-download"></i> Скачать PDF
+                    </button>
+                    <button class="btn-prev" onclick="prevStep(2)">← Редактировать</button>
+                </div>
+                
+                <!-- Контейнер для PDF -->
+                <div id="proposal-preview" class="proposal-preview">
+                    <div class="proposal-header">
+                        <h1>Коммерческое предложение</h1>
+                        <div class="proposal-meta">
+                            <div>Номер: <span id="proposal-number">PZF-2023-001</span></div>
+                            <div>Дата: <span id="proposal-date"></span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="proposal-client">
+                        <h2>Для: <span id="client-company"></span></h2>
+                        <p id="client-description"></p>
+                    </div>
+                    
+                    <div class="proposal-services">
+                        <h2>Предлагаемые услуги</h2>
+                        <table id="services-table">
+                            <thead>
+                                <tr>
+                                    <th>Услуга</th>
+                                    <th>Описание</th>
+                                    <th>Стоимость</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Заполнится через JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="proposal-summary">
+                        <h2>Стоимость проекта</h2>
+                        <div class="summary-row">
+                            <span>Стоимость услуг:</span>
+                            <span id="summary-subtotal">0 руб.</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Дополнительные опции:</span>
+                            <span id="summary-options">0 руб.</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Итого:</span>
+                            <span id="summary-total">0 руб.</span>
+                        </div>
+                    </div>
+                    
+                    <div class="proposal-terms">
+                        <h2>Условия сотрудничества</h2>
+                        <p>Срок выполнения: <span id="proposal-deadline">30 рабочих дней</span></p>
+                        <p>Этапы оплаты: 50% предоплата, 50% по завершению проекта</p>
+                    </div>
+                    
+                    <div class="proposal-footer">
+                        <p>С уважением, команда PZF-Studio</p>
+                        <p>Email: info@pzf-studio.ru | Телефон: +7 (XXX) XXX-XX-XX</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Уведомление -->
+    <div class="notification" id="notification">
+        <span class="notification-text"></span>
+    </div>
+
+    <script src="proposal.js"></script>
+</body>
+</html>

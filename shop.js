@@ -73,6 +73,96 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 120000,
             features: ["Все функции базовой CRM", "Интеграция с телефонией", "Email-рассылки", "Расширенная аналитика"],
             icon: "fas fa-cogs"
+        },
+        {
+            id: 9,
+            name: "Логотип и айдентика",
+            category: "design",
+            description: "Разработка уникального логотипа и фирменного стиля для вашего бренда",
+            price: 20000,
+            features: ["3 концепции логотипа", "Фирменные цвета и шрифты", "Брендбук", "Гайдлайны"],
+            icon: "fas fa-palette"
+            },
+            {
+            id: 10,
+            name: "UI/UX дизайн",
+            category: "design",
+            description: "Проектирование пользовательских интерфейсов и опыта взаимодействия",
+            price: 45000,
+            features: ["Прототипирование", "User research", "Адаптивный дизайн", "Интерактивный прототип"],
+            icon: "fas fa-pencil-ruler"
+            },
+            {
+            id: 11,
+            name: "Дизайн презентаций",
+            category: "design",
+            description: "Создание профессиональных презентаций для вашего бизнеса",
+            price: 15000,
+            features: ["До 20 слайдов", "Анимации", "Брендирование", "Редактируемые файлы"],
+            icon: "fas fa-chart-line"
+        },
+        {
+            id: 12,
+            name: "SEO-оптимизация",
+            category: "marketing",
+            description: "Повышение видимости вашего сайта в поисковых системах",
+            price: 35000,
+            features: ["Аудит сайта", "Ключевые слова", "Техническая оптимизация", "Отчетность"],
+            icon: "fas fa-search"
+            },
+            {
+            id: 13,
+            name: "Контекстная реклама",
+            category: "marketing",
+            description: "Настройка и ведение рекламных кампаний в Яндекс.Директ и Google Ads",
+            price: 25000,
+            features: ["Настройка кампаний", "Аналитика", "A/B тестирование", "Ежемесячный отчет"],
+            icon: "fas fa-ad"
+            },
+            {
+            id: 14,
+            name: "Аналитика и метрики",
+            category: "marketing",
+            description: "Настройка систем аналитики для отслеживания эффективности бизнеса",
+            price: 20000,
+            features: ["Google Analytics", "Яндекс.Метрика", "Настройка целей", "Дашборды"],
+            icon: "fas fa-chart-pie"
+        },
+        {
+            id: 15,
+            name: "Техническое обслуживание",
+            category: "support",
+            description: "Регулярное обслуживание и поддержка вашего сайта или приложения",
+            price: 10000,
+            features: ["Ежемесячное обновление", "Резервное копирование", "Мониторинг", "Техподдержка 24/7"],
+            icon: "fas fa-tools"
+            },
+            {
+            id: 16,
+            name: "Исправление ошибок",
+            category: "support",
+            description: "Устранение неполадок и ошибок на существующем сайте или приложении",
+            price: 15000,
+            features: ["Диагностика проблем", "Исправление багов", "Тестирование", "Гарантия на работу"],
+            icon: "fas fa-bug"
+        },
+        {
+            id: 17,
+            name: "Техническая консультация",
+            category: "consulting",
+            description: "Экспертная консультация по выбору технологий и архитектуры проекта",
+            price: 5000,
+            features: ["1 час консультации", "Технический анализ", "Рекомендации", "Письменный отчет"],
+            icon: "fas fa-headset"
+            },
+            {
+            id: 18,
+            name: "Стратегия digital-развития",
+            category: "consulting",
+            description: "Разработка комплексной стратегии цифрового развития вашего бизнеса",
+            price: 30000,
+            features: ["Анализ рынка", "План развития", "Roadmap", "Ключевые метрики"],
+            icon: "fas fa-chess"
         }
     ];
 
@@ -177,7 +267,11 @@ document.addEventListener('DOMContentLoaded', function() {
             web: 'Веб',
             mobile: 'Мобильное',
             bot: 'Бот',
-            crm: 'CRM'
+            crm: 'CRM',
+            design: 'Дизайн',
+            marketing: 'Маркетинг',
+            support: 'Поддержка',
+            consulting: 'Консультация'
         };
         return categories[category] || category;
     }
@@ -245,6 +339,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             cartItems.appendChild(cartItemElement);
         });
+        const generateProposalBtn = document.createElement('button');
+        generateProposalBtn.textContent = 'Сформировать КП';
+        generateProposalBtn.classList.add('checkout-btn');
+        generateProposalBtn.style.marginTop = '1rem';
+        generateProposalBtn.style.background = '#4caf50';
+        generateProposalBtn.onclick = function() {
+            window.location.href = 'proposal.html';
+        };
+
+        cartItems.parentNode.insertBefore(generateProposalBtn, cartItems.nextSibling);
     }
 
     // Обновление итоговой суммы
