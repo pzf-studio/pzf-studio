@@ -776,3 +776,56 @@ body {
         margin-top: 0.5rem;
     }
 }
+
+.service-badge {
+    /* Существующие стили */
+    background: linear-gradient(45deg, #6e45e2, #88d3ce);
+}
+
+/* Дополнительные цвета для разных категорий */
+.service-item[data-category="blockchain"] .service-badge {
+    background: linear-gradient(45deg, #f7931a, #ffb800);
+}
+
+.service-item[data-category="ai"] .service-badge {
+    background: linear-gradient(45deg, #00c4cc, #007acc);
+}
+
+.service-item[data-category="arvr"] .service-badge {
+    background: linear-gradient(45deg, #8a2be2, #4b0082);
+}
+
+.service-item[data-category="security"] .service-badge {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+}
+
+.service-item[data-category="cloud"] .service-badge {
+    background: linear-gradient(45deg, #4285f4, #34a853);
+}
+
+/* Адаптивность для большого количества услуг */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-item {
+        padding: 1.5rem;
+    }
+}
+
+/* Анимации для фильтрации */
+.service-item {
+    transition: all 0.3s ease;
+}
+
+.service-item.hidden {
+    display: none;
+}

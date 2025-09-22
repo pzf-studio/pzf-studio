@@ -1,168 +1,503 @@
 // shop.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Данные услуг
+    // Данные услуг - РАСШИРЕННЫЙ АССОРТИМЕНТ
     const services = [
+        // ВЕБ-РАЗРАБОТКА (расширено)
         {
             id: 1,
-            name: "Лендинг",
+            name: "Лендинг Премиум",
             category: "web",
-            description: "Одностраничный сайт для презентации вашего продукта или услуги",
-            price: 25000,
-            features: ["Адаптивный дизайн", "SEO-оптимизация", "Форма обратной связи", "Интеграция с аналитикой"],
+            description: "Одностраничный сайт с анимациями и высокой конверсией",
+            price: 45000,
+            features: ["Адаптивный дизайн", "3D-анимации", "A/B тестирование", "SEO-оптимизация", "Интеграция с CRM"],
             icon: "fas fa-window-restore"
         },
         {
             id: 2,
             name: "Корпоративный сайт",
             category: "web",
-            description: "Многостраничный сайт для представления вашей компании в интернете",
-            price: 50000,
-            features: ["До 10 страниц", "Система управления контентом", "Адаптивный дизайн", "Формы обратной связи"],
+            description: "Многостраничный сайт для представления вашей компании",
+            price: 80000,
+            features: ["До 15 страниц", "CMS система", "Мультиязычность", "Блог", "Формы обратной связи"],
             icon: "fas fa-building"
         },
         {
             id: 3,
             name: "Интернет-магазин",
             category: "web",
-            description: "Полнофункциональный онлайн-магазин для вашего бизнеса",
-            price: 100000,
-            features: ["Каталог товаров", "Корзина и оформление заказа", "Платежная система", "Панель администратора"],
+            description: "Полнофункциональный онлайн-магазин",
+            price: 150000,
+            features: ["Неограниченные товары", "Платежные системы", "Инventory management", "Отзывы и рейтинги"],
             icon: "fas fa-shopping-cart"
         },
         {
             id: 4,
-            name: "Мобильное приложение",
-            category: "mobile",
-            description: "Кроссплатформенное приложение для iOS и Android",
-            price: 150000,
-            features: ["Кроссплатформенность", "Нативные элементы UI", "Интеграция с API", "Публикация в магазинах"],
-            icon: "fas fa-mobile-alt"
+            name: "Портал новостей",
+            category: "web",
+            description: "Новостной портал с системой управления контентом",
+            price: 120000,
+            features: ["Система тегов", "RSS-ленты", "Модерация", "Комментарии", "Поиск по контенту"],
+            icon: "fas fa-newspaper"
         },
         {
             id: 5,
-            name: "Информационный бот",
-            category: "bot",
-            description: "Telegram-бот для автоматического ответа на частые вопросы",
-            price: 15000,
-            features: ["База знаний", "Меню команд", "Интеграция с сайтом", "Статистика запросов"],
-            icon: "fab fa-telegram-plane"
+            name: "Образовательная платформа",
+            category: "web",
+            description: "LMS система для онлайн-обучения",
+            price: 200000,
+            features: ["Курсы и уроки", "Тесты и экзамены", "Сертификаты", "Видео-хостинг", "Прогресс студентов"],
+            icon: "fas fa-graduation-cap"
         },
+
+        // МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ (расширено)
         {
             id: 6,
-            name: "Торговый бот",
-            category: "bot",
-            description: "Telegram-бот для приема заказов и обработки платежей",
-            price: 30000,
-            features: ["Каталог товаров", "Корзина покупок", "Прием платежей", "Уведомления о заказах"],
-            icon: "fab fa-telegram-plane"
+            name: "iOS приложение",
+            category: "mobile",
+            description: "Нативное приложение для Apple devices",
+            price: 250000,
+            features: ["SwiftUI", "App Store публикация", "Push-уведомления", "In-App purchases", "Apple Pay"],
+            icon: "fab fa-apple"
         },
         {
             id: 7,
-            name: "Базовая CRM",
-            category: "crm",
-            description: "Система управления взаимоотношениями с клиентами",
-            price: 60000,
-            features: ["Управление контактами", "История взаимодействий", "Напоминания", "Базовая аналитика"],
-            icon: "fas fa-cogs"
+            name: "Android приложение",
+            category: "mobile",
+            description: "Нативное приложение для Android",
+            price: 220000,
+            features: ["Kotlin/Java", "Google Play публикация", "Material Design", "Google Pay", "Firebase"],
+            icon: "fab fa-android"
         },
         {
             id: 8,
-            name: "Расширенная CRM",
-            category: "crm",
-            description: "Полнофункциональная CRM система с интеграциями",
-            price: 120000,
-            features: ["Все функции базовой CRM", "Интеграция с телефонией", "Email-рассылки", "Расширенная аналитика"],
-            icon: "fas fa-cogs"
+            name: "Кроссплатформенное приложение",
+            category: "mobile",
+            description: "Приложение для iOS и Android на Flutter/React Native",
+            price: 180000,
+            features: ["Единый кодобаза", "Нативный performance", "Hot reload", "Публикация в обоих сторах"],
+            icon: "fas fa-mobile-alt"
         },
         {
             id: 9,
-            name: "Логотип и айдентика",
-            category: "design",
-            description: "Разработка уникального логотипа и фирменного стиля для вашего бренда",
-            price: 20000,
-            features: ["3 концепции логотипа", "Фирменные цвета и шрифты", "Брендбук", "Гайдлайны"],
-            icon: "fas fa-palette"
-            },
-            {
+            name: "Игровое приложение",
+            category: "mobile",
+            description: "Мобильная игра на Unity/Unreal Engine",
+            price: 300000,
+            features: ["3D графика", "Мультиплеер", "In-game purchases", "Leaderboards", "Achievements"],
+            icon: "fas fa-gamepad"
+        },
+
+        // TELEGRAM БОТЫ (расширено)
+        {
             id: 10,
-            name: "UI/UX дизайн",
-            category: "design",
-            description: "Проектирование пользовательских интерфейсов и опыта взаимодействия",
-            price: 45000,
-            features: ["Прототипирование", "User research", "Адаптивный дизайн", "Интерактивный прототип"],
-            icon: "fas fa-pencil-ruler"
-            },
-            {
+            name: "Информационный бот",
+            category: "bot",
+            description: "Бот для автоматического ответа на вопросы",
+            price: 25000,
+            features: ["База знаний", "Машинное обучение", "Мультиязычность", "Аналитика", "Интеграция с API"],
+            icon: "fab fa-telegram-plane"
+        },
+        {
             id: 11,
-            name: "Дизайн презентаций",
-            category: "design",
-            description: "Создание профессиональных презентаций для вашего бизнеса",
-            price: 15000,
-            features: ["До 20 слайдов", "Анимации", "Брендирование", "Редактируемые файлы"],
-            icon: "fas fa-chart-line"
+            name: "Торговый бот",
+            category: "bot",
+            description: "Бот для продаж и приема заказов",
+            price: 50000,
+            features: ["Каталог товаров", "Корзина", "Оплата", "Уведомления", "CRM интеграция"],
+            icon: "fab fa-telegram-plane"
         },
         {
             id: 12,
-            name: "SEO-оптимизация",
-            category: "marketing",
-            description: "Повышение видимости вашего сайта в поисковых системах",
-            price: 35000,
-            features: ["Аудит сайта", "Ключевые слова", "Техническая оптимизация", "Отчетность"],
-            icon: "fas fa-search"
-            },
-            {
+            name: "Новостной бот",
+            category: "bot",
+            description: "Бот для рассылки новостей и уведомлений",
+            price: 30000,
+            features: ["RSS парсинг", "Расписание", "Категории", "Статистика", "Модерация"],
+            icon: "fab fa-telegram-plane"
+        },
+
+        // CRM СИСТЕМЫ (расширено)
+        {
             id: 13,
-            name: "Контекстная реклама",
-            category: "marketing",
-            description: "Настройка и ведение рекламных кампаний в Яндекс.Директ и Google Ads",
-            price: 25000,
-            features: ["Настройка кампаний", "Аналитика", "A/B тестирование", "Ежемесячный отчет"],
-            icon: "fas fa-ad"
-            },
-            {
+            name: "Базовая CRM",
+            category: "crm",
+            description: "Система управления клиентами",
+            price: 80000,
+            features: ["Клиентская база", "История взаимодействий", "Напоминания", "Отчеты", "Импорт/экспорт"],
+            icon: "fas fa-cogs"
+        },
+        {
             id: 14,
-            name: "Аналитика и метрики",
-            category: "marketing",
-            description: "Настройка систем аналитики для отслеживания эффективности бизнеса",
-            price: 20000,
-            features: ["Google Analytics", "Яндекс.Метрика", "Настройка целей", "Дашборды"],
-            icon: "fas fa-chart-pie"
+            name: "Расширенная CRM",
+            category: "crm",
+            description: "Полнофункциональная CRM система",
+            price: 150000,
+            features: ["Автоматизация", "Воронки продаж", "Email-маркетинг", "Аналитика", "Интеграции"],
+            icon: "fas fa-cogs"
         },
         {
             id: 15,
-            name: "Техническое обслуживание",
-            category: "support",
-            description: "Регулярное обслуживание и поддержка вашего сайта или приложения",
-            price: 10000,
-            features: ["Ежемесячное обновление", "Резервное копирование", "Мониторинг", "Техподдержка 24/7"],
-            icon: "fas fa-tools"
-            },
-            {
+            name: "ERP система",
+            category: "crm",
+            description: "Enterprise Resource Planning система",
+            price: 300000,
+            features: ["Финансы", "HR", "Логистика", "Производство", "Бизнес-аналитика"],
+            icon: "fas fa-chart-line"
+        },
+
+        // ДИЗАЙН И БРЕНДИНГ (расширено)
+        {
             id: 16,
-            name: "Исправление ошибок",
-            category: "support",
-            description: "Устранение неполадок и ошибок на существующем сайте или приложении",
-            price: 15000,
-            features: ["Диагностика проблем", "Исправление багов", "Тестирование", "Гарантия на работу"],
-            icon: "fas fa-bug"
+            name: "Логотип и айдентика",
+            category: "design",
+            description: "Разработка фирменного стиля",
+            price: 35000,
+            features: ["3 концепции", "Брендбук", "Гайдлайны", "Все форматы", "Правки"],
+            icon: "fas fa-palette"
         },
         {
             id: 17,
+            name: "UI/UX дизайн",
+            category: "design",
+            description: "Проектирование интерфейсов",
+            price: 60000,
+            features: ["Прототипы", "User research", "Wireframes", "Design system", "Интерактивный прототип"],
+            icon: "fas fa-pencil-ruler"
+        },
+        {
+            id: 18,
+            name: "3D дизайн",
+            category: "design",
+            description: "3D моделирование и визуализация",
+            price: 90000,
+            features: ["3D модели", "Текстуры", "Анимации", "AR/VR", "Рендеринг"],
+            icon: "fas fa-cube"
+        },
+        {
+            id: 19,
+            name: "Моушн-дизайн",
+            category: "design",
+            description: "Анимированная графика",
+            price: 70000,
+            features: ["2D анимация", "3D анимация", "Explainer video", "Sound design", "Все форматы"],
+            icon: "fas fa-film"
+        },
+
+        // МАРКЕТИНГ И АНАЛИТИКА (расширено)
+        {
+            id: 20,
+            name: "SEO-оптимизация",
+            category: "marketing",
+            description: "Продвижение в поисковых системах",
+            price: 50000,
+            features: ["Аудит сайта", "Ключевые слова", "Технический SEO", "Контент-стратегия", "Отчетность"],
+            icon: "fas fa-search"
+        },
+        {
+            id: 21,
+            name: "Контекстная реклама",
+            category: "marketing",
+            description: "Реклама в Яндекс.Директ и Google Ads",
+            price: 40000,
+            features: ["Настройка кампаний", "А/Б тестирование", "Ретаргетинг", "Аналитика", "Оптимизация"],
+            icon: "fas fa-ad"
+        },
+        {
+            id: 22,
+            name: "SMM продвижение",
+            category: "marketing",
+            description: "Продвижение в социальных сетях",
+            price: 45000,
+            features: ["Стратегия", "Контент-план", "Таргетированная реклама", "Комьюнити-менеджмент", "Аналитика"],
+            icon: "fas fa-hashtag"
+        },
+        {
+            id: 23,
+            name: "Email-маркетинг",
+            category: "marketing",
+            description: "Рассылки и автоматизация",
+            price: 35000,
+            features: ["Стратегия", "Шаблоны", "Автоматизация", "A/B тесты", "Аналитика"],
+            icon: "fas fa-envelope"
+        },
+
+        // ТЕХНИЧЕСКАЯ ПОДДЕРЖКА (расширено)
+        {
+            id: 24,
+            name: "Техническое обслуживание",
+            category: "support",
+            description: "Постоянная поддержка сайта/приложения",
+            price: 15000,
+            features: ["Мониторинг", "Резервное копирование", "Обновления", "Безопасность", "Техподдержка 24/7"],
+            icon: "fas fa-tools"
+        },
+        {
+            id: 25,
+            name: "Исправление ошибок",
+            category: "support",
+            description: "Устранение неполадок",
+            price: 20000,
+            features: ["Диагностика", "Исправление багов", "Тестирование", "Документация", "Гарантия"],
+            icon: "fas fa-bug"
+        },
+        {
+            id: 26,
+            name: "Миграция данных",
+            category: "support",
+            description: "Перенос на новые системы",
+            price: 30000,
+            features: ["Анализ данных", "Миграция", "Тестирование", "Обучение", "Поддержка"],
+            icon: "fas fa-database"
+        },
+
+        // КОНСУЛЬТАЦИИ (расширено)
+        {
+            id: 27,
             name: "Техническая консультация",
             category: "consulting",
-            description: "Экспертная консультация по выбору технологий и архитектуры проекта",
-            price: 5000,
-            features: ["1 час консультации", "Технический анализ", "Рекомендации", "Письменный отчет"],
+            description: "Экспертная консультация",
+            price: 8000,
+            features: ["1 час консультации", "Технический анализ", "Рекомендации", "Письменный отчет", "Follow-up"],
             icon: "fas fa-headset"
-            },
-            {
-            id: 18,
+        },
+        {
+            id: 28,
             name: "Стратегия digital-развития",
             category: "consulting",
-            description: "Разработка комплексной стратегии цифрового развития вашего бизнеса",
-            price: 30000,
-            features: ["Анализ рынка", "План развития", "Roadmap", "Ключевые метрики"],
+            description: "Комплексная стратегия",
+            price: 50000,
+            features: ["Анализ рынка", "Roadmap", "KPI", "Бюджетирование", "Реализация"],
             icon: "fas fa-chess"
+        },
+        {
+            id: 29,
+            name: "Аудит проекта",
+            category: "consulting",
+            description: "Комплексный аудит",
+            price: 35000,
+            features: ["Технический аудит", "Бизнес-аудит", "Рекомендации", "План действий", "Приоритизация"],
+            icon: "fas fa-chart-bar"
+        },
+
+        // НОВЫЕ КАТЕГОРИИ
+        // БЛОКЧЕЙН И WEB3
+        {
+            id: 30,
+            name: "Смарт-контракты",
+            category: "blockchain",
+            description: "Разработка смарт-контрактов",
+            price: 120000,
+            features: ["Solidity/Rust", "Audit", "Deployment", "Testing", "Documentation"],
+            icon: "fas fa-link"
+        },
+        {
+            id: 31,
+            name: "NFT маркетплейс",
+            category: "blockchain",
+            description: "Платформа для торговли NFT",
+            price: 250000,
+            features: ["Minting", "Marketplace", "Wallet integration", "Royalties", "Gas optimization"],
+            icon: "fas fa-coins"
+        },
+
+        // ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ
+        {
+            id: 32,
+            name: "Чат-бот с AI",
+            category: "ai",
+            description: "Умный чат-бот с машинным обучением",
+            price: 90000,
+            features: ["NLP", "Machine Learning", "Training", "Integration", "Analytics"],
+            icon: "fas fa-robot"
+        },
+        {
+            id: 33,
+            name: "Рекомендательная система",
+            category: "ai",
+            description: "Система персональных рекомендаций",
+            price: 150000,
+            features: ["Algorithms", "Data processing", "Personalization", "A/B testing", "Dashboard"],
+            icon: "fas fa-brain"
+        },
+
+        // AR/VR РАЗРАБОТКА
+        {
+            id: 34,
+            name: "AR приложение",
+            category: "arvr",
+            description: "Приложение дополненной реальности",
+            price: 180000,
+            features: ["3D models", "Markerless AR", "Multiplatform", "Cloud recognition", "Analytics"],
+            icon: "fas fa-vr-cardboard"
+        },
+        {
+            id: 35,
+            name: "VR опыт",
+            category: "arvr",
+            description: "Виртуальная реальность",
+            price: 220000,
+            features: ["Immersive experience", "3D environment", "Interactions", "Multiplayer", "Hardware integration"],
+            icon: "fas fa-vr-cardboard"
+        },
+
+        // КИБЕРБЕЗОПАСНОСТЬ
+        {
+            id: 36,
+            name: "Пентест",
+            category: "security",
+            description: "Тестирование на проникновение",
+            price: 60000,
+            features: ["Vulnerability assessment", "Penetration testing", "Report", "Remediation", "Follow-up"],
+            icon: "fas fa-shield-alt"
+        },
+        {
+            id: 37,
+            name: "Аудит безопасности",
+            category: "security",
+            description: "Комплексный аудит безопасности",
+            price: 80000,
+            features: ["Code review", "Infrastructure audit", "Compliance", "Recommendations", "Implementation"],
+            icon: "fas fa-user-shield"
+        },
+
+        // ОБЛАЧНЫЕ ТЕХНОЛОГИИ
+        {
+            id: 38,
+            name: "Миграция в облако",
+            category: "cloud",
+            description: "Перенос инфраструктуры в облако",
+            price: 100000,
+            features: ["Architecture design", "Migration", "Optimization", "Monitoring", "Cost management"],
+            icon: "fas fa-cloud"
+        },
+        {
+            id: 39,
+            name: "DevOps настройка",
+            category: "cloud",
+            description: "Настройка CI/CD и инфраструктуры",
+            price: 120000,
+            features: ["CI/CD pipeline", "Containerization", "Orchestration", "Monitoring", "Automation"],
+            icon: "fas fa-server"
+        },
+
+        // ИНТЕРНЕТ ВЕЩЕЙ (IoT)
+        {
+            id: 40,
+            name: "IoT платформа",
+            category: "iot",
+            description: "Платформа для умных устройств",
+            price: 200000,
+            features: ["Device management", "Data processing", "Dashboards", "Alerts", "Integration"],
+            icon: "fas fa-microchip"
+        },
+        {
+            id: 41,
+            name: "Умный дом",
+            category: "iot",
+            description: "Система умного дома",
+            price: 150000,
+            features: ["Automation", "Mobile app", "Voice control", "Energy management", "Security"],
+            icon: "fas fa-home"
+        },
+
+        // БИГ ДАТА И АНАЛИТИКА
+        {
+            id: 42,
+            name: "Data Lake",
+            category: "data",
+            description: "Хранилище больших данных",
+            price: 180000,
+            features: ["Data ingestion", "Storage", "Processing", "Visualization", "ML integration"],
+            icon: "fas fa-database"
+        },
+        {
+            id: 43,
+            name: "Бизнес-аналитика",
+            category: "data",
+            description: "Система аналитики и отчетности",
+            price: 120000,
+            features: ["ETL", "Dashboards", "KPIs", "Predictive analytics", "Custom reports"],
+            icon: "fas fa-chart-pie"
+        },
+
+        // ЭЛЕКТРОННАЯ КОММЕРЦИЯ
+        {
+            id: 44,
+            name: "Marketplace",
+            category: "ecommerce",
+            description: "Многопользовательская площадка",
+            price: 250000,
+            features: ["Multi-vendor", "Escrow system", "Reviews", "Dispute resolution", "Analytics"],
+            icon: "fas fa-store"
+        },
+        {
+            id: 45,
+            name: "Система бронирования",
+            category: "ecommerce",
+            description: "Онлайн-бронирование услуг",
+            price: 150000,
+            features: ["Calendar", "Payments", "Notifications", "CRM integration", "Mobile app"],
+            icon: "fas fa-calendar-check"
+        },
+
+        // КОРПОРАТИВНЫЕ РЕШЕНИЯ
+        {
+            id: 46,
+            name: "Интранет портал",
+            category: "enterprise",
+            description: "Корпоративный портал",
+            price: 180000,
+            features: ["Document management", "Collaboration", "Workflows", "HR tools", "Analytics"],
+            icon: "fas fa-building"
+        },
+        {
+            id: 47,
+            name: "Система документооборота",
+            category: "enterprise",
+            description: "Электронный документооборот",
+            price: 120000,
+            features: ["Workflows", "E-signature", "Version control", "Audit trail", "Integration"],
+            icon: "fas fa-file-contract"
+        },
+
+        // ОБРАЗОВАТЕЛЬНЫЕ ТЕХНОЛОГИИ
+        {
+            id: 48,
+            name: "EdTech платформа",
+            category: "edtech",
+            description: "Образовательная технология",
+            price: 200000,
+            features: ["LMS", "Content management", "Gamification", "Certification", "Mobile learning"],
+            icon: "fas fa-book-open"
+        },
+        {
+            id: 49,
+            name: "Виртуальный класс",
+            category: "edtech",
+            description: "Онлайн-обучение в реальном времени",
+            price: 150000,
+            features: ["Video conferencing", "Whiteboard", "Screen sharing", "Recording", "Interactive tools"],
+            icon: "fas fa-chalkboard-teacher"
+        },
+
+        // ФИНТЕХ РЕШЕНИЯ
+        {
+            id: 50,
+            name: "Платежный шлюз",
+            category: "fintech",
+            description: "Интеграция платежных систем",
+            price: 120000,
+            features: ["Multiple providers", "Recurring payments", "Fraud detection", "Reporting", "Compliance"],
+            icon: "fas fa-credit-card"
+        },
+        {
+            id: 51,
+            name: "Блокчейн кошелек",
+            category: "fintech",
+            description: "Криптовалютный кошелек",
+            price: 100000,
+            features: ["Multi-currency", "Security", "Exchange integration", "Mobile app", "Backup"],
+            icon: "fas fa-wallet"
         }
     ];
 
@@ -299,6 +634,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Отображение товаров в корзине
     function renderCartItems() {
+    
+        const existingProposalBtn = document.querySelector('.generate-proposal-btn');
+        if (existingProposalBtn) {
+            existingProposalBtn.remove();
+        }
+        
         if (cart.length === 0) {
             cartItems.innerHTML = `
                 <div class="empty-cart-message">
@@ -339,16 +680,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             cartItems.appendChild(cartItemElement);
         });
-        const generateProposalBtn = document.createElement('button');
-        generateProposalBtn.textContent = 'Сформировать КП';
-        generateProposalBtn.classList.add('checkout-btn');
-        generateProposalBtn.style.marginTop = '1rem';
-        generateProposalBtn.style.background = '#4caf50';
-        generateProposalBtn.onclick = function() {
-            window.location.href = 'proposal.html';
-        };
+        
+        // Создаем кнопку только если есть товары в корзине
+        if (cart.length > 0) {
+            const generateProposalBtn = document.createElement('button');
+            generateProposalBtn.textContent = 'Сформировать КП';
+            generateProposalBtn.classList.add('checkout-btn', 'generate-proposal-btn');
+            generateProposalBtn.style.marginTop = '1rem';
+            generateProposalBtn.style.background = '#4caf50';
+            generateProposalBtn.onclick = function() {
+                window.location.href = 'proposal.html';
+            };
 
-        cartItems.parentNode.insertBefore(generateProposalBtn, cartItems.nextSibling);
+            cartItems.parentNode.insertBefore(generateProposalBtn, cartItems.nextSibling);
+        }
     }
 
     // Обновление итоговой суммы

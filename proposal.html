@@ -90,27 +90,149 @@
                     
                     <div class="form-group">
                         <label>Дополнительные опции</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox">
-                                <input type="checkbox" name="options" value="design">
-                                <span class="checkmark"></span>
-                                Индивидуальный дизайн (+15% к стоимости)
-                            </label>
-                            <label class="checkbox">
-                                <input type="checkbox" name="options" value="support">
-                                <span class="checkmark"></span>
-                                Годовая техническая поддержка (+20% к стоимости)
-                            </label>
-                            <label class="checkbox">
-                                <input type="checkbox" name="options" value="hosting">
-                                <span class="checkmark"></span>
-                                Настройка хостинга и домена (+5 000 руб.)
-                            </label>
-                            <label class="checkbox">
-                                <input type="checkbox" name="options" value="seo">
-                                <span class="checkmark"></span>
-                                Базовая SEO-оптимизация (+10 000 руб.)
-                            </label>
+                        <div class="options-container">
+                            <!-- Слайдеры для опций с процентной стоимостью -->
+                            <div class="option-slider-group">
+                                <div class="option-header">
+                                    <span class="option-name">Индивидуальный дизайн</span>
+                                    <span class="option-price">+<span id="design-value">0</span>%</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="30" value="0" class="option-slider" id="design-slider" data-type="percent">
+                                    <div class="slider-labels">
+                                        <span>0%</span>
+                                        <span>15%</span>
+                                        <span>30%</span>
+                                    </div>
+                                </div>
+                                <p class="option-description">Уникальный дизайн, соответствующий вашему бренду</p>
+                            </div>
+
+                            <div class="option-slider-group">
+                                <div class="option-header">
+                                    <span class="option-name">Техническая поддержка</span>
+                                    <span class="option-price">+<span id="support-value">0</span> месяцев</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="24" value="0" class="option-slider" id="support-slider" data-type="months" data-price="5000">
+                                    <div class="slider-labels">
+                                        <span>0 мес</span>
+                                        <span>12 мес</span>
+                                        <span>24 мес</span>
+                                    </div>
+                                </div>
+                                <p class="option-description">Период технической поддержки после завершения проекта</p>
+                            </div>
+
+                            <!-- Переключатели для бинарных опций -->
+                            <div class="option-toggle-group">
+                                <div class="toggle-header">
+                                    <span class="option-name">Настройка хостинга и домена</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="hosting-toggle" data-price="5000">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p class="option-description">Полная настройка хостинга и регистрация домена</p>
+                                <span class="option-price">+5 000 руб.</span>
+                            </div>
+
+                            <div class="option-toggle-group">
+                                <div class="toggle-header">
+                                    <span class="option-name">SEO-оптимизация</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="seo-toggle" data-price="10000">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p class="option-description">Базовая поисковая оптимизация сайта</p>
+                                <span class="option-price">+10 000 руб.</span>
+                            </div>
+
+                            <!-- Новые опции -->
+                            <div class="option-toggle-group">
+                                <div class="toggle-header">
+                                    <span class="option-name">Адаптация под мобильные устройства</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="mobile-toggle" data-price="15000">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p class="option-description">Полная адаптация под smartphones и tablets</p>
+                                <span class="option-price">+15 000 руб.</span>
+                            </div>
+
+                            <div class="option-slider-group">
+                                <div class="option-header">
+                                    <span class="option-name">Количество языков версии</span>
+                                    <span class="option-price">+<span id="languages-value">0</span> языков</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="5" value="0" class="option-slider" id="languages-slider" data-type="count" data-price="7000">
+                                    <div class="slider-labels">
+                                        <span>0</span>
+                                        <span>3</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                                <p class="option-description">Мультиязычная версия сайта</p>
+                            </div>
+
+                            <div class="option-toggle-group">
+                                <div class="toggle-header">
+                                    <span class="option-name">Интеграция с CRM</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="crm-toggle" data-price="20000">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p class="option-description">Интеграция с популярными CRM-системами</p>
+                                <span class="option-price">+20 000 руб.</span>
+                            </div>
+
+                            <div class="option-slider-group">
+                                <div class="option-header">
+                                    <span class="option-name">Количество страниц админ-панели</span>
+                                    <span class="option-price">+<span id="admin-pages-value">0</span> страниц</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="10" value="0" class="option-slider" id="admin-pages-slider" data-type="count" data-price="3000">
+                                    <div class="slider-labels">
+                                        <span>0</span>
+                                        <span>5</span>
+                                        <span>10</span>
+                                    </div>
+                                </div>
+                                <p class="option-description">Дополнительные страницы в административной панели</p>
+                            </div>
+
+                            <div class="option-toggle-group">
+                                <div class="toggle-header">
+                                    <span class="option-name">Аналитика и отчетность</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="analytics-toggle" data-price="12000">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p class="option-description">Расширенная система аналитики и отчетов</p>
+                                <span class="option-price">+12 000 руб.</span>
+                            </div>
+
+                            <div class="option-slider-group">
+                                <div class="option-header">
+                                    <span class="option-name">Скорость разработки (приоритет)</span>
+                                    <span class="option-price">+<span id="priority-value">0</span>%</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="50" value="0" class="option-slider" id="priority-slider" data-type="percent">
+                                    <div class="slider-labels">
+                                        <span>0%</span>
+                                        <span>25%</span>
+                                        <span>50%</span>
+                                    </div>
+                                </div>
+                                <p class="option-description">Ускорение сроков разработки за счет приоритета в работе</p>
+                            </div>
                         </div>
                     </div>
                 </form>
