@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PZF-Studio Биржа | Динамическое ценообразование</title>
+    <link rel="stylesheet" href="byb.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="holographic-bg"></div>
+    
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">PZF-Studio Биржа</div>
+            <div class="nav-menu">
+                <a href="land.html" class="nav-link">Главная</a>
+                <a href="byb.html" class="nav-link active">Биржа</a>
+                <a href="shop.html" class="nav-link">Магазин</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </div>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="byb-container">
+        <section class="byb-hero">
+            <h1>Динамическое ценообразование</h1>
+            <p>Цена на нашу премиум услугу меняется каждую минуту по биржевому принципу</p>
+        </section>
+
+        <section class="price-section">
+            <div class="price-card">
+                <div class="price-header">
+                    <h2>Премиум разработка</h2>
+                    <div class="service-badge">Хит</div>
+                </div>
+                
+                <div class="price-display">
+                    <div class="current-price">
+                        <span class="price" id="current-price">2.00</span>
+                        <span class="currency">BTC</span>
+                    </div>
+                    <div class="price-in-rub">
+                        <span id="price-rub">200 000 ₽</span>
+                    </div>
+                </div>
+
+                <div class="price-change">
+                    <div class="change-indicator" id="change-indicator">
+                        <i class="fas fa-minus"></i>
+                        <span id="change-amount">0.00</span>
+                    </div>
+                    <div class="change-percent" id="change-percent">0%</div>
+                </div>
+
+                <div class="price-history">
+                    <canvas id="price-chart"></canvas>
+                </div>
+
+                <div class="price-info">
+                    <div class="info-item">
+                        <span class="info-label">Минимальная цена:</span>
+                        <span class="info-value">1.00 BTC (100 000 ₽)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Максимальная цена:</span>
+                        <span class="info-value">3.00 BTC (300 000 ₽)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Следующее изменение:</span>
+                        <span class="info-value" id="next-change">через 60 секунд</span>
+                    </div>
+                </div>
+
+                <button class="buy-button" id="buy-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    Приобрести сейчас
+                </button>
+
+                <div class="timer">
+                    <div class="timer-circle">
+                        <svg class="timer-svg" width="60" height="60">
+                            <circle class="timer-circle-bg" cx="30" cy="30" r="28"></circle>
+                            <circle class="timer-circle-fill" cx="30" cy="30" r="28"></circle>
+                        </svg>
+                        <div class="timer-text" id="timer">60</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Как это работает?</h3>
+                    <p>Цена изменяется каждую минуту случайным образом в пределах установленных границ. Если цена выходит за пределы 1.00-3.00, она автоматически возвращается к базовой стоимости 2.00.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Стратегия покупки</h3>
+                    <p>Следите за графиком и покупайте услугу в момент снижения цены. Это позволяет получить премиум качество по оптимальной стоимости.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Время работы</h3>
+                    <p>Биржа работает 24/7. Изменения цены происходят каждую минуту без перерывов и выходных.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PZF-Studio Биржа</h3>
+                <p>Инновационная система динамического ценообразования для наших клиентов.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>Email: info@pzf-studio.ru</p>
+                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PZF-Studio. Все права защищены</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="byb.js"></script>
+</body>
+</html>
