@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор КП, ТЗ и Договоров | PZF-Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="KP.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">PZF-Studio Конструктор</div>
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link active" data-type="kp">КП</a>
+                    <a href="#" class="nav-link" data-type="tz">ТЗ</a>
+                    <a href="#" class="nav-link" data-type="contract">Договор</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <h1 class="page-title" id="document-title">Коммерческое предложение</h1>
+        
+        <!-- Выбор типа документа -->
+        <div class="document-type-selector">
+            <label>Тип документа:</label>
+            <select id="doc-type">
+                <option value="kp">Коммерческое предложение</option>
+                <option value="tz">Техническое задание</option>
+                <option value="contract">Договор</option>
+            </select>
+        </div>
+        
+        <div class="proposal-builder">
+            <!-- Шапка документа -->
+            <section class="document-header-section">
+                <h2 class="section-title">Шапка документа</h2>
+                <div class="header-fields">
+                    <div class="field-group">
+                        <label>Название компании:</label>
+                        <input type="text" id="company-name" placeholder="PZF-Studio" value="PZF-Studio">
+                    </div>
+                    <div class="field-group">
+                        <label>Кому адресовано:</label>
+                        <input type="text" id="client-name" placeholder="ООО 'Клиент'">
+                    </div>
+                    <div class="field-group">
+                        <label>Номер документа:</label>
+                        <input type="text" id="doc-number" placeholder="КП-2023-001" value="КП-2023-001">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Раздел 1: Задачи -->
+            <section>
+                <h2 class="section-title">Раздел 1: Задачи</h2>
+                <button class="add-row-btn" id="add-task-row">
+                    <i class="fas fa-plus"></i> Добавить задачу
+                </button>
+                <table class="content-table" id="task-table">
+                    <thead>
+                        <tr>
+                            <th width="25%">Задача</th>
+                            <th width="45%">Описание</th>
+                            <th width="30%">Цена/Комментарий</th>
+                            <th width="50px"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="task-table-body">
+                        <tr>
+                            <td><input type="text" placeholder="Основная задача"></td>
+                            <td><textarea placeholder="Подробное описание задачи"></textarea></td>
+                            <td><input type="text" placeholder="Стоимость или комментарий"></td>
+                            <td class="actions-cell">
+                                <button class="row-btn delete-row" title="Удалить строку">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Раздел 2: Опции -->
+            <section>
+                <h2 class="section-title">Раздел 2: Опции</h2>
+                <button class="add-row-btn" id="add-option-row">
+                    <i class="fas fa-plus"></i> Добавить опцию
+                </button>
+                <table class="content-table" id="option-table">
+                    <thead>
+                        <tr>
+                            <th width="25%">Опция</th>
+                            <th width="45%">Описание</th>
+                            <th width="30%">Цена</th>
+                            <th width="50px"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="option-table-body">
+                        <tr>
+                            <td><input type="text" placeholder="Дополнительная опция"></td>
+                            <td><textarea placeholder="Описание опции"></textarea></td>
+                            <td><input type="text" placeholder="Стоимость"></td>
+                            <td class="actions-cell">
+                                <button class="row-btn delete-row" title="Удалить строку">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section>
+                <h2 class="section-title">Раздел 3: Стоимость</h2>
+                <div class="header-fields">
+                    <div class="field-group">
+                        <label>Стоимость основных услуг (руб.):</label>
+                        <input type="number" id="main-cost" placeholder="0" min="0" step="0.01">
+                    </div>
+                    <div class="field-group">
+                        <label>Стоимость опций (руб.):</label>
+                        <input type="number" id="options-cost" placeholder="0" min="0" step="0.01">
+                    </div>
+                    <div class="field-group">
+                        <label>Итоговая стоимость (руб.):</label>
+                        <input type="number" id="total-cost" placeholder="0" min="0" step="0.01" readonly style="background-color: #f8f9fa; font-weight: bold;">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Раздел 4: Сроки</h2>
+                <div class="header-fields">
+                    <div class="field-group">
+                        <label>Дата начала работ:</label>
+                        <input type="date" id="start-date">
+                    </div>
+                    <div class="field-group">
+                        <label>Дата окончания работ:</label>
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Дополнительные условия -->
+            <section>
+                <h2 class="section-title">Дополнительные условия</h2>
+                <div class="conditions-container">
+                    <textarea id="additional-conditions" placeholder="Введите дополнительные условия, сроки, гарантии и т.д."></textarea>
+                </div>
+            </section>
+            
+            <!-- Подписи -->
+            <section>
+                <h2 class="section-title">Подписи сторон</h2>
+                <div class="signatures-container">
+                    <div class="signature-block">
+                        <h3>Исполнитель</h3>
+                        <div class="signature-fields">
+                            <div class="field-group">
+                                <label>Должность:</label>
+                                <input type="text" id="executor-position" placeholder="Генеральный директор" value="Генеральный директор">
+                            </div>
+                            <div class="field-group">
+                                <label>ФИО:</label>
+                                <input type="text" id="executor-name" placeholder="Иванов И.И.">
+                            </div>
+                            <div class="field-group">
+                                <label>Подпись:</label>
+                                <input type="text" id="executor-signature" placeholder="(подпись)">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="signature-block">
+                        <h3>Заказчик</h3>
+                        <div class="signature-fields">
+                            <div class="field-group">
+                                <label>Должность:</label>
+                                <input type="text" id="client-position" placeholder="Директор">
+                            </div>
+                            <div class="field-group">
+                                <label>ФИО:</label>
+                                <input type="text" id="client-fullname" placeholder="Петров П.П.">
+                            </div>
+                            <div class="field-group">
+                                <label>Подпись:</label>
+                                <input type="text" id="client-signature" placeholder="(подпись)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Действия -->
+            <div class="actions">
+                <button class="action-btn preview-btn" id="preview-btn">
+                    <i class="fas fa-eye"></i> Предпросмотр
+                </button>
+                <button class="action-btn download-btn" id="download-btn">
+                    <i class="fas fa-download"></i> Скачать PDF
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно предпросмотра -->
+    <div class="modal" id="preview-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div class="preview-content" id="preview-content">
+                <!-- Содержимое предпросмотра будет генерироваться здесь -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PZF-Studio Конструктор</h3>
+                    <p>Профессиональный инструмент для создания КП, ТЗ и договоров</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@pzf-studio.ru</p>
+                    <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PZF-Studio. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="KP.js"></script>
+</body>
+</html>
